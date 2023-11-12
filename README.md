@@ -58,7 +58,7 @@ https://github.com/NewEthicker/Pi_Server/assets/88562515/3c9b0901-c8de-4720-9362
 - Open the ngrok URL (e.g., https://ngrok.8462-4739-748J.app) in any web browser to view the real-time data webpage.
 
 ## Result
+https://github.com/NewEthicker/Pi_Server/assets/88562515/df2a466e-ff53-484c-866c-b976f68d646e
 ![final_01](https://github.com/NewEthicker/Pi_Server/assets/88562515/357590b9-61fa-4de3-a31e-5b52fec5a58a)
 
-https://github.com/NewEthicker/Pi_Server/assets/88562515/2bda372c-d54c-4ab2-8536-0cc2379c1120
 
