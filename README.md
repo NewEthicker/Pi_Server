@@ -38,8 +38,10 @@ This project utilizes a Raspberry Pi 3 to act as a server for communicating with
 3. **Expose the Server using ngrok:**
    ```bash
    ./ngrok http 8080
-***If the above command doesn't work, refer to this video for troubleshooting.
-Copy the ngrok URL (e.g., https://ngrok.8462-4739-748J.app) generated after running the command.***
+***If the above command doesn't work, refer to this video(https://www.youtube.com/watch?v=RIEArLa7kEQ) for troubleshooting.
+
+Copy the ngrok URL (e.g., https://ngrok.8462-4739-748J.app) generated after running the command.
+
 4. ****
 
 
