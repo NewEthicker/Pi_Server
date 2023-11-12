@@ -1,1 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pi Server</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap">
+</head>
+<body>
+    <style>
+        @property --rotate {
+            syntax: "<angle>";
+            initial-value: 132deg;
+            inherits: false;
+        }
+
+        :root {
+            --card-height: 30vh; /* Increase the height as needed */
+            --card-width: calc(var(--card-height) / 1.5); /* Calculate width based on height */
+            --font-family: 'Open Sans', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #212534;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            box-sizing: border-box;
+        }
+
+        .rectangle {
+            background: #191c29;
+            width: 70%; /* Adjust the width as needed */
+            height: 2.5rem; /* Adjust the height of the rectangle as needed */
+            position: relative;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.4em;
+            color: rgb(88, 199, 250, 100%); 
+            font-family: var(--font-family);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px; /* Add margin to separate the heading from the cards */
+        }
+
+        .rectangle h2 {
+            margin: 0;
+            
+        }
+
+
+        .space {
+            margin-top: 100px;
+        }
+
+        .rectangle::before {
+            content: "";
+            position: absolute;
+            top: 0px; /* Fixed typo here */
+            left: 0;
+            right: 0;
+            
+            bottom: 0;
+            border: 2px solid transparent;
+            /* z-index: -1; */
+            /* top: -1%; */
+            /* left: -2%; */
+            animation: spin 2.5s linear infinite;
+            border-radius: 8px;
+            animation: glowBorder 10s linear infinite;
+        }
+
+        @keyframes glowBorder {
+            0% {
+                border-color: rgba(88, 199, 250, 0);
+                box-shadow: 0 0 5px rgba(88, 199, 250, 0);
+            }
+            50% {
+                border-color: rgba(88, 199, 250, 0.5);
+                box-shadow: 0 0 10px rgba(88, 199, 250, 0.5);
+            }
+            100% {
+                border-color: rgba(88, 199, 250, 0);
+                box-shadow: 0 0 5px rgba(88, 199, 250, 0);
+            }
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .card {
+            background: #191c29;
+            width: var(--card-width);
+            height: var(--card-height);
+            padding: 3px;
+            margin: 10px;
+            position: relative;
+            border-radius: 6px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            font-size: 1.5em;
+            color: rgb(88, 199, 250, 100%); 
+            /* cursor: pointer; */
+            font-family: var(--font-family);
+        }
+
+        .card h2 {
+            margin: 0;
+        }
+
+        .card-number {
+            margin: 0;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .card::before {
+            content: "";
+            width: 104%;
+            height: 102%;
+            border-radius: 8px;
+            background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2);
+            position: absolute;
+            z-index: -1;
+            top: -1%;
+            left: -2%;
+            animation: spin 2.5s linear infinite;
+        }
+
+        .card::after {
+            position: absolute;
+            content: "";
+            top: calc(var(--card-height) / 6);
+            left: 0;
+            right: 0;
+            z-index: -1;
+            height: 100%;
+            width: 100%;
+            margin: 0 auto;
+            transform: scale(0.8);
+            filter: blur(calc(var(--card-height) / 6));
+            /* background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2); */
+            opacity: 1;
+            transition: opacity 0.5s;
+            animation: spin 2.5s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                --rotate: 0deg;
+            }
+            100% {
+                --rotate: 360deg;
+            }
+        }
+
+        a {
+            color: #212534;
+            text-decoration: none;
+            font-family: var(--font-family);
+            font-weight: bold;
+            margin-top: 2rem;
+        }
+    </style>
+    <div class="rectangle">
+        <h3>Raspberry Pi 3 Server Control Panel</h3>
+    </div>
+    <div class="space"></div>
+    <div class="card-container">
+        <div class="card">
+            <p class="card-text">Temperature</p>
+            <p class="card-number" id="temperatureValue">Loading..</p>
+        </div>
+        <div class="card">
+            <p class="card-text">Humidity</p>
+            <p class="card-number" id="humidityValue">Loading..</p>
+        </div>
+    </div>
+
+    <a href="https://mythrillfiction.com/" target="_blank"></a>
+</body>
+</html>
+<script>
+    var temp = 0;  // Initialize temp and humi
+    var humi = 0;
+
+    // Create a new XMLHttpRequest
+    var xhr = new XMLHttpRequest();
+    
+    // Define the URL of your CSV file
+    /* var csvUrl = '../data.csv'; */
+    var csvUrl = '/static/data.csv';
+
+
+
+    // Configure the request to fetch the CSV file
+    xhr.open('GET', csvUrl, true);
+    
+    // Set up a callback function to handle the response
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            // Split the CSV content into lines
+            var lines = xhr.responseText.split('\n');
+            
+            // Loop through each line (assuming two lines: temperature and humidity)
+            for (var i = 0; i < lines.length; i++) {
+                var parts = lines[i].split(',');
+                if (parts.length === 2) {
+                    var key = parts[0].trim();
+                    var value = parseFloat(parts[1].trim());
+                    
+                    // Update temp and humi based on the key
+                    if (key === 'temperature') {
+                        temp = value;
+                    } else if (key === 'humidity') {
+                        humi = value;
+                    }
+                }
+            }
+            
+            // Update the HTML elements
+            document.getElementById("temperatureValue").innerHTML = temp + "°C";
+            document.getElementById("humidityValue").innerHTML = humi + "%";
+        } else {
+            console.error('Failed to fetch data.csv');
+        }
+    };
+    
+    // Send the request
+    xhr.send();
+</script>
 
