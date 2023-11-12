@@ -17,15 +17,15 @@ This project utilizes a Raspberry Pi 3 to act as a server for communicating with
   - Utilizes CSS for styling and includes animations for visual appeal.
 
 - **ESP8266 Code (`device.ino`):**
-  - The firmware for the ESP8266 device.
-  - Implements communication protocols to send data to the Raspberry Pi server.
+  - The firmware code for the ESP8266 acting as a client.
+  - Sends humidity and temperature data to the Raspberry Pi server.
 
 ## File Structure
 
 - **`server.py`**: Python script containing the Flask backend logic.
 - **`templates/index.html`**: HTML file for the frontend, defining the webpage structure and styling.
 - **`static/data.csv`**: CSV file storing data received from the ESP8266.
-- **`device.ino`**: Firmware code for the ESP8266 device.
+- **`device.ino`**: Code for the ESP8266, acting as a client and sending humidity and temperature data to the server.
 
 ## Usage
 
