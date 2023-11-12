@@ -11,7 +11,7 @@ DHT dht(DHTPIN, DHTTYPE);
 const char* ssid = "Local";       // Replace with your network credentials
 const char* password = "va1234av";
 
-const char* host = "b04e-2402-8100-2664-5dfa-4a64-c809-e7cc-3d93.ngrok-free.app";  // Replace with the your ngrok Url without https://
+const char* host = "b04e-2402-8100-2664-5dfa-4a64-c809-e7cc-3d93.ngrok-free.app";  // Replace with the your ngrok Url without https:// .
 
 void setup() {
     Serial.begin(115200);
