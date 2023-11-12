@@ -4,6 +4,10 @@
 
 This project utilizes a Raspberry Pi 3 to act as a server for communicating with an ESP8266 device. The server, implemented in Python using Flask, manages the interaction between the Raspberry Pi and the ESP8266. Additionally, the server serves a real-time webpage to display data received from the ESP8266.
 
+## 3D Pi Server Case
+
+The case for this Raspberry Pi server is designed using Onshape, a cloud-based CAD platform. You can download the case's design files and 3D print it to create a custom housing for your Raspberry Pi 3 server.
+
 ## Components
 
 - **Backend (Python):**
