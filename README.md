@@ -43,7 +43,7 @@ This project utilizes a Raspberry Pi 3 to act as a server for communicating with
 
 4. **Configure ESP8266 Code (device.ino):**
 - Open the device.ino file in the Arduino IDE or your preferred code editor.
-- Locate line number 10, which may contain the server URL. Replace it with the ngrok URL copied in the previous step.
+- Locate line number 14, which may contain the server URL. Replace it with the ngrok URL copied in the previous step.
 
 5. **Connect DHT11 Sensor:**
 - Attach the DHT11 sensor to the designated pin on the ESP8266, as specified in the **`device.ino`** code.
