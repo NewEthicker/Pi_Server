@@ -20,7 +20,7 @@ This project utilizes a Raspberry Pi 3 to act as a server for communicating with
 
 - **`server.py`**: Python script containing the Flask backend logic.
 - **`templates/index.html`**: HTML file for the frontend, defining the webpage structure and styling.
-- **`static/data.csv`**: CSV file storing data received from the ESP8266, cleaned by the backend.
+- **`static/data.csv`**: CSV file storing data received from the ESP8266.
 
 ## Usage
 
