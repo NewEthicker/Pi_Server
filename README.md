@@ -48,7 +48,7 @@ This project utilizes a Raspberry Pi 3 to act as a server for communicating with
 5. **Connect DHT11 Sensor:**
 - Attach the DHT11 sensor to the designated pin on the ESP8266, as specified in the **`device.ino`** code.
 
-6. ** Access the Webpage:**
+6. **Access the Webpage:**
 - Open the ngrok URL (e.g., https://ngrok.8462-4739-748J.app) in any web browser to view the real-time data webpage.
 
    
