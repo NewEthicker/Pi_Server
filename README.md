@@ -1,4 +1,4 @@
-# Raspberry Pi Server for ESP8266 Communication
+# Raspberry Pi Server
 
 ## Overview
 
