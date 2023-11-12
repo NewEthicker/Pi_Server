@@ -41,7 +41,9 @@ This project utilizes a Raspberry Pi 3 to act as a server for communicating with
   - If the above command doesn't work, refer to this video(https://www.youtube.com/watch?v=RIEArLa7kEQ) for troubleshooting.
   - Copy the ngrok URL (e.g., https://ngrok.8462-4739-748J.app) generated after running the command.
 
-4. ****
+4. **Configure ESP8266 Code (device.ino):**
+- Open the device.ino file in the Arduino IDE or your preferred code editor.
+- Locate line number 10, which may contain the server URL. Replace it with the ngrok URL copied in the previous step.
 
 
    
