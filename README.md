@@ -7,6 +7,7 @@ This project utilizes a Raspberry Pi 3 to act as a server for communicating with
 ## 3D Pi Server Case
 
 The case for this Raspberry Pi server is designed using Onshape, a cloud-based CAD platform. You can download the case's design files and 3D print it to create a custom housing for your Raspberry Pi 3 server.
+https://github.com/NewEthicker/Pi_Server/assets/88562515/3c9b0901-c8de-4720-9362-3dfa7657a4e3
 
 ## Components
 
@@ -51,8 +52,9 @@ The case for this Raspberry Pi server is designed using Onshape, a cloud-based C
 
 5. **Connect DHT11 Sensor:**
 - Attach the DHT11 sensor to the designated pin on the ESP8266, as specified in the **`device.ino`** code.
-
+  
 6. **Access the Webpage:**
 - Open the ngrok URL (e.g., https://ngrok.8462-4739-748J.app) in any web browser to view the real-time data webpage.
 
-   
+## Result
+![final_01](https://github.com/NewEthicker/Pi_Server/assets/88562515/357590b9-61fa-4de3-a31e-5b52fec5a58a)
